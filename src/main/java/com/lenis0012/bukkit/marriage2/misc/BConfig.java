@@ -37,7 +37,7 @@ public class BConfig extends YamlConfiguration {
         try {
             load(file);
         } catch(Exception e) {
-            core.getLogger().log(Level.WARNING, "Failed to reload configuration file", e);
+            core.getLogger().log(Level.WARNING, "Не успешная перезагрузка файлов", e);
         }
     }
 
@@ -45,7 +45,7 @@ public class BConfig extends YamlConfiguration {
         try {
             save(file);
         } catch(Exception e) {
-            core.getLogger().log(Level.WARNING, "Failed to save configuration file", e);
+            core.getLogger().log(Level.WARNING, "Не удачное сохранение файлов", e);
         }
     }
 
@@ -78,7 +78,7 @@ public class BConfig extends YamlConfiguration {
                 output.write(buffer, 0, length);
             }
         } catch(Exception e) {
-            MarriagePlugin.getCore().getLogger().log(Level.WARNING, "Failed to copy file", e);
+            MarriagePlugin.getCore().getLogger().log(Level.WARNING, "Не удачное копирование файлов", e);
         } finally {
             if(input != null) {
                 try {
