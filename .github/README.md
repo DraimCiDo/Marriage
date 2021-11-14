@@ -18,16 +18,16 @@ completely recoded and still misses alot of features
 - Suggestions?
 - Video
 
-## Commands
-- `/marry` - Shows commands, version, authors and info
-- `/marry <name>` - Marry a player (also tracks the player if you use a part of the name)
-- `/marry list` - Shows all married players
-- `/marry divorce` - Divorce with your partner
-- `/marry tp` - Teleport to your partner
-- `/marry gift` - Gift the current item in your hand to your partner
-- `/marry chat` - Private chat with your partner
-- `/marry seen` - Shows partner's last login
-- `/marry chatspy` - Spy on private messages (required marry.chatspy)
+## Команды
+- `/marry` - Показать команды, версию, авторов и другую информацию плагина 
+- `/marry <name>` - Выйти замуж за игрока (также отслеживает игрока, если вы используете часть имени)
+- `/marry list` - Показать всех замужних игроков
+- `/marry divorce` - Развестись с вашим партнёром 
+- `/marry tp` - Телепорт к вашему партнёру
+- `/marry gift` - Подарить предмет в руке вашему партнёру
+- `/marry chat` - Приватный чат с вашим партнёром
+- `/marry seen` - Показать последний вход вашего партнёра 
+- `/marry chatspy` - Включить слежку за чатом (требуется marry.chatspy)
 
 ## Права
 - `marry.*` - Разрешение всего функционала плагина.
