@@ -7,16 +7,16 @@ Marriage Reloaded was coded in mc 1.2.5 and v1.0 releases on dec 21 2012
 This plugin has multiple commands and it is still growing really fast, it has not been developepd for 4 months and then got picked up again, it is
 completely recoded and still misses alot of features
 
-## Features
-- Marry in Minecraft
-- Set homes for you and your partner
-- Private chat
-- Gift items
-- Teleport to your partner
-- View all married couples
-- Kiss your partner (crouch + right click)
-- Suggestions?
-- Video
+## Возможности
+- Свадьбы в Minecraft
+- Установка точки дома для тебя и твоего партнёра 
+- Приватный чат
+- Передача предметов
+- Телепорт к вашему партнёру 
+- Показать всех женатых игроков
+- Поцеловать вашего партнёра (Шифт + ПКМ)
+- Предложение руки и сердца?
+- Видео
 
 ## Команды
 - `/marry` - Показать команды, версию, авторов и другую информацию плагина 
