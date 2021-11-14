@@ -29,17 +29,17 @@ completely recoded and still misses alot of features
 - `/marry seen` - Shows partner's last login
 - `/marry chatspy` - Spy on private messages (required marry.chatspy)
 
-## Permissions
-- `marry.*` - Allows all permissions
-- `marry.admin` - Allows all admin commands (currently only /marry reload)
-- `marry.update` - Shows update notifications on login
-- `marry.chatspy` - Allows player to spy on messages
-- `marry.default` - Allows all command but marry.reload
-- `marry.marry` - Allows the command /marry <user>
-- `marry.home` - Allows the command /marry home
-- `marry.sethome` - Allows the command /marry sethome
-- `marry.tp` - Allwos the command /marry tp
-- `marry.gift` - Allows the command /marry gift
-- `marry.chat` - Allows the command /marry chat
-- `marry.seen` - Allowed the command /marry seen
+## Права
+- `marry.*` - Разрешение всего функционала плагина.
+- `marry.admin` - Разрешение админ функционала (доступ к /marry reload)
+- `marry.update` - Отображение об обновлениях плагина при входе на сервер
+- `marry.chatspy` - Разрешить админу следить за сообщениями в marry chat
+- `marry.default` - Разрешение для игроков, кроме marry.reload
+- `marry.marry` - Разрешение на команду /marry <игрок>
+- `marry.home` - Разрешение на команду /marry home
+- `marry.sethome` - Разрешение на команду /marry sethome
+- `marry.tp` - Разрешение на команду /marry tp
+- `marry.gift` - Разрешение на команду /marry gift
+- `marry.chat` - Разрешение на команду /marry chat
+- `marry.seen` - Разрешение на команду /marry seen
 
