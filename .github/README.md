@@ -1,11 +1,10 @@
 ![Marriage Reloaded](https://media-elerium.cursecdn.com/attachments/119/347/marriage-banner.png)
 
-## About
-Marriage reloaded, Your love comes true.
-This is a plugin that allows you to marry in Minecraft to get acces to special features.
-Marriage Reloaded was coded in mc 1.2.5 and v1.0 releases on dec 21 2012
-This plugin has multiple commands and it is still growing really fast, it has not been developepd for 4 months and then got picked up again, it is
-completely recoded and still misses alot of features
+## О плагине
+Marriage Reloaded, скажи вашему браку привет.
+Этот плагин позволяет игрокам вступать в браки прямо в игре.
+Плагин был разработан на MC 1.2.5, версия 1.0 вышла в декабре 2012 года  
+Довольно большой функционал не даст игрокам заскучать.
 
 ## Возможности
 - Свадьбы в Minecraft
