@@ -54,12 +54,12 @@ public class MarriageCore extends MarriageBase {
         // Permissions
         if(Bukkit.getPluginManager().isPluginEnabled("Vault")) {
             if(!Permissions.setupPermissions()) {
-                getLogger().log(Level.WARNING, "Vault was found, but no permission provider was detected!");
-                getLogger().log(Level.INFO, "Falling back to bukkit permissions.");
+                getLogger().log(Level.WARNING, "Vault был найден, но поставщик разрешений не был обнаружен!");
+                getLogger().log(Level.INFO, "Возвращаюсь к разрешениям bukkit.");
             }
         } else {
-            getLogger().log(Level.INFO, "Vault was not found, if you are having permission issues, please install it!");
-            getLogger().log(Level.INFO, "Falling back to bukkit permissions.");
+            getLogger().log(Level.INFO, "Vault не найден, если у вас возникли проблемы с разрешениями, пожалуйста, установите его!");
+            getLogger().log(Level.INFO, "Возврат к разрешениям bukkit.");
         }
     }
 
@@ -68,7 +68,7 @@ public class MarriageCore extends MarriageBase {
         this.dependencies = new Dependencies(this);
         if(Settings.PLOTSQUARED_AUTO_TRUST.value() && Bukkit.getPluginManager().isPluginEnabled("PlotSquared")) {
             Plugin plotSquared = Bukkit.getPluginManager().getPlugin("PlotSquared");
-            getLogger().log(Level.INFO, "Detected PlotSquared v" + plotSquared.getDescription().getVersion() + ". Attempting to hook.");
+            getLogger().log(Level.INFO, "Обнаружен PlotSquared v" + plotSquared.getDescription().getVersion() + ". Попытка хука.");
             hookPlotSquared();
         }
     }
@@ -95,24 +95,24 @@ public class MarriageCore extends MarriageBase {
 
     private void hookPlotSquared() {
         try {
-            getLogger().log(Level.INFO, "Attempting to hook using PlotSquared v5 API.");
+            getLogger().log(Level.INFO, "Попытка подключения с помощью API PlotSquared v5.");
             Class.forName("com.plotsquared.core.api.PlotAPI");
             register(new V5PlotSquaredListener());
-            getLogger().log(Level.INFO, "Success! Auto-trust has been enabled.");
+            getLogger().log(Level.INFO, "Успех! Включено автоматическое доверие.");
             return;
         } catch (Exception e) {
         }
 
         try {
-            getLogger().log(Level.INFO, "Attempting to hook using PlotSquared legacy API.");
+            getLogger().log(Level.INFO, "Попытка подключиться с помощью устаревшего API PlotSquared.");
             Class.forName("com.intellectualcrafters.plot.PS");
             register(new LegacyPlotSquaredListener());
-            getLogger().log(Level.INFO, "Success! Auto-trust has been enabled.");
+            getLogger().log(Level.INFO, "Успех! Включено автоматическое доверие.");
             return;
         } catch (Exception e) {
         }
 
-        getLogger().log(Level.WARNING, "Failed to hook with PlotSquared, please use v5 for full support.");
+        getLogger().log(Level.WARNING, "Не удалось подключиться к PlotSquared, пожалуйста, используйте v5 для полной поддержки.");
     }
 
     @Register(name = "commands", type = Register.Type.ENABLE)

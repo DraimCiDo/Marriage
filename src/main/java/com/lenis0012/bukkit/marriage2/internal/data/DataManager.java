@@ -66,7 +66,7 @@ public class DataManager {
             user = config.getString("MySQL.user", "root");
             password = config.getString("MySQL.password", "");
             String host = config.getString("MySQL.host", "localhost:3306");
-            String database = config.getString("MySQL.database", "myserver");
+            String database = config.getString("MySQL.database", "dailyfire");
             this.prefix = config.getString("MySQL.prefix", "marriage_");
             url = String.format("jdbc:mysql://%s/%s", host, database);
             driver = Driver.MYSQL;
@@ -88,7 +88,7 @@ public class DataManager {
                     int purged = purge(daysInMillis, purgeMarried);
                     long duration = System.currentTimeMillis() - startTime;
                     if(purged > 0) {
-                        core.getLogger().log(Level.INFO, "Purged " + purged + " player entries in " + duration + "ms");
+                        core.getLogger().log(Level.INFO, "Очищено " + purged + "игрок за " + duration + "мс");
                     }
                 }
             }, 0L, delayTime);
@@ -97,7 +97,7 @@ public class DataManager {
         try {
             driver.initiate();
         } catch(Exception e) {
-            core.getLogger().log(Level.SEVERE, "Failed to initiate database driver", e);
+            core.getLogger().log(Level.SEVERE, "Не удалось запустить драйвер базы данных", e);
         }
 
         // Create cached connection supplier.
@@ -131,7 +131,7 @@ public class DataManager {
                 statement.executeUpdate(String.format("INSERT INTO %sversion (version_id) VALUES(%s);", prefix, upgrade.getVersionId()));
             }
         } catch(SQLException e) {
-            core.getLogger().log(Level.WARNING, "Failed to initiate database", e);
+            core.getLogger().log(Level.WARNING, "Не удалось запустить базу данных", e);
         } finally {
             supplier.finish();
         }
@@ -189,7 +189,7 @@ public class DataManager {
             ps.close();
             return removeList.size();
         } catch(SQLException e) {
-            core.getLogger().log(Level.WARNING, "Failed to purge user data", e);
+            core.getLogger().log(Level.WARNING, "Не удалось очистить данные пользователя", e);
             return 0;
         } finally {
             supplier.finish();
@@ -207,7 +207,7 @@ public class DataManager {
             ps.close(); // Release statement
             loadMarriages(connection, player, false);
         } catch(SQLException e) {
-            core.getLogger().log(Level.WARNING, "Failed to load player data", e);
+            core.getLogger().log(Level.WARNING, "Не удалось загрузить данные игрока", e);
         } finally {
             supplier.finish();
         }
@@ -244,7 +244,7 @@ public class DataManager {
             }
             ps.close();
         } catch(SQLException e) {
-            core.getLogger().log(Level.WARNING, "Failed to save player data", e);
+            core.getLogger().log(Level.WARNING, "Не удалось сохранить данные игрока", e);
         } finally {
             supplier.finish();
         }
@@ -273,7 +273,7 @@ public class DataManager {
                 ps2.close();
             }
         } catch(SQLException e) {
-            core.getLogger().log(Level.WARNING, "Failed to save marriage data", e);
+            core.getLogger().log(Level.WARNING, "Не удалось сохранить данные о браке", e);
         } finally {
             supplier.finish();
         }
@@ -315,7 +315,7 @@ public class DataManager {
             ps.executeUpdate();
             ps.close();
         } catch(SQLException e) {
-            core.getLogger().log(Level.WARNING, "Failed to load player data", e);
+            core.getLogger().log(Level.WARNING, "Не удалось загрузить данные игрока", e);
         } finally {
             supplier.finish();
         }
@@ -344,7 +344,7 @@ public class DataManager {
 
             return new ListQuery(this, pages, page, list);
         } catch(SQLException e) {
-            core.getLogger().log(Level.WARNING, "Failed to load marriage list", e);
+            core.getLogger().log(Level.WARNING, "Не удалось загрузить список браков", e);
             return new ListQuery(this, 0, 0, new ArrayList<MData>());
         } finally {
             supplier.finish();
@@ -355,7 +355,7 @@ public class DataManager {
         Connection connection = supplier.access();
         try {
             // Migrate players
-            core.getLogger().log(Level.INFO, "Migrating player data... (may take A WHILE)");
+            core.getLogger().log(Level.INFO, "Перенос данных игрока... (может занять некоторое ВРЕМЯ)");
             PreparedStatement ps = connection.prepareStatement("SELECT * FROM " + prefix + "players;");
             ResultSet result = ps.executeQuery();
             while(result.next()) {
@@ -366,7 +366,7 @@ public class DataManager {
             }
             ps.close();
 
-            core.getLogger().log(Level.INFO, "Migrating marriage data...");
+            core.getLogger().log(Level.INFO, "Миграция данных о браках...");
             ps = connection.prepareStatement("SELECT * FROM " + prefix + "marriages;");
             result = ps.executeQuery();
             while(result.next()) {
@@ -378,7 +378,7 @@ public class DataManager {
             core.getLogger().log(Level.INFO, "Migration complete!");
             return true;
         } catch(SQLException e) {
-            core.getLogger().log(Level.WARNING, "Failed to load migrate database", e);
+            core.getLogger().log(Level.WARNING, "Не удалось загрузить базу данных переноса", e);
         } finally {
             supplier.finish();
         }

@@ -83,11 +83,11 @@ public class MarriagePlugin extends PluginHolder {
             if(method != null) {
                 list.remove(method);
                 Register register = method.getAnnotation(Register.class);
-                getLogger().log(Level.INFO, "Loading " + register.name() + "...");
+                getLogger().log(Level.INFO, "Загрузка " + register.name() + "...");
                 try {
                     method.invoke(core);
                 } catch(Exception e) {
-                    getLogger().log(Level.SEVERE, "Failed to load " + register.name(), e);
+                    getLogger().log(Level.SEVERE, "Не удалось загрузить " + register.name(), e);
                 }
             } else {
                 list.clear();
