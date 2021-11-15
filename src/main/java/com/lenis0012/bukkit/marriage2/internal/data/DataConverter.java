@@ -3,7 +3,6 @@ package com.lenis0012.bukkit.marriage2.internal.data;
 import com.google.common.collect.Maps;
 import com.lenis0012.bukkit.marriage2.MData;
 import com.lenis0012.bukkit.marriage2.internal.MarriageCore;
-import com.lenis0012.bukkit.marriage2.misc.UUIDFetcher;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
