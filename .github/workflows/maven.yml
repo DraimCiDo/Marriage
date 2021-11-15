@@ -12,8 +12,6 @@ jobs:
     steps:
     - name: Создание папки
       run: mkdir build
-    - name: Вход в папку
-        run: cd build
     - name: Проверка последнего кода
       uses: actions/checkout@v2
 
