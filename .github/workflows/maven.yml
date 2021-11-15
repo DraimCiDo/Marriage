@@ -10,20 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout latest code
+    - name: Создание папки
+      run: mkdir build
+    - name: Вход в папку
+        run: cd build
+    - name: Проверка последнего кода
       uses: actions/checkout@v2
 
-    - name: Set up JDK 16
+    - name: Установка JDK 16
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-version: 16
 
-    - name: Build with Maven
+    - name: Билд на мавене
       run: mvn -B package --file pom.xml
 
-    - name: Upload Artifacts
+    - name: Загрузка артифакта
       uses: actions/upload-artifact@v2
       with:
-        name: Marriage Artifact
-        path: build/libs
+        name: DraimMarry
+        path: build
