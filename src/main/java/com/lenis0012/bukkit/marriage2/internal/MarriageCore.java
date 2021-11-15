@@ -115,7 +115,8 @@ public class MarriageCore extends MarriageBase {
         getLogger().log(Level.WARNING, "Не удалось подключиться к PlotSquared, пожалуйста, используйте v5 для полной поддержки.");
     }
 
-    @Register(name = "commands", type = Register.Type.ENABLE)
+    @SuppressWarnings("unchecked")
+	@Register(name = "commands", type = Register.Type.ENABLE)
     public void registerCommands() {
         register(
                 CommandChat.class,

@@ -8,6 +8,7 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.HoverEvent.Action;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
 
 public class CommandHelp extends Command {
@@ -43,14 +44,14 @@ public class CommandHelp extends Command {
                 continue;
             }
             ComponentBuilder builder = new ComponentBuilder("/marry " + alias + command.getUsage()).color(ChatColor.GREEN)
-                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Стоимость: "
-                            + marriage.dependencies().getEconomyService().format(command.getExecutionFee())).create()))
+                    .event(new HoverEvent(Action.SHOW_TEXT, new Text("Стоимость: "
+                            + marriage.dependencies().getEconomyService().format(command.getExecutionFee()))))
                     .append(" - ").color(ChatColor.WHITE)
-                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Стоимость: "
-                            + marriage.dependencies().getEconomyService().format(command.getExecutionFee())).create()))
+                    .event(new HoverEvent(Action.SHOW_TEXT, new Text("Стоимость: "
+                            + marriage.dependencies().getEconomyService().format(command.getExecutionFee()))))
                     .append(command.getDescription()).color(ChatColor.GRAY)
-                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Стоимость: "
-                            + marriage.dependencies().getEconomyService().format(command.getExecutionFee())).create()));
+                     .event(new HoverEvent(Action.SHOW_TEXT, new Text("Стоимость: "
+                            + marriage.dependencies().getEconomyService().format(command.getExecutionFee()))));
             player.spigot().sendMessage(builder.create());
         }
 
