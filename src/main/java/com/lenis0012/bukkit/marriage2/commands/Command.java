@@ -17,7 +17,7 @@ public abstract class Command {
     protected final Marriage marriage;
     private final String[] aliases;
 
-    private String description = "No description available";
+    private String description = "Описание недоступно";
     private String usage = "";
     private int minArgs = 0;
     private Permissions permission = null;

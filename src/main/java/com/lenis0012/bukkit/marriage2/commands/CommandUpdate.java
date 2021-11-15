@@ -20,16 +20,16 @@ public class CommandUpdate extends Command {
         final Updater updater = ((MarriageCore) marriage).getUpdater();
         final Version version = updater.getNewVersion();
         if(version == null) {
-            reply("&cUpdater is not enabled!");
+            reply("&cОбновлятор не доступен!");
             return;
         }
 
-        reply("&aDownloading " + version.getName() + "...");
+        reply("&aУстановка " + version.getName() + "...");
         Bukkit.getScheduler().runTaskAsynchronously(marriage.getPlugin(), new Runnable() {
             @Override
             public void run() {
                 String message = updater.downloadVersion();
-                final String response = message == null ? "&aUpdate successful, will be active on reboot." : "&c&lError: &c" + message;
+                final String response = message == null ? "&aОбновление прошло успешно, будет активировано при перезагрузке." : "&c&lОшибка: &c" + message;
                 Bukkit.getScheduler().runTask(marriage.getPlugin(), new Runnable() {
                     @Override
                     public void run() {
@@ -40,7 +40,7 @@ public class CommandUpdate extends Command {
 
                         ItemStack changelog = updater.getChangelog();
                         if(changelog == null) {
-                            reply("&cChangelog isn't available for this version.");
+                            reply("&cСписок изменений недоступен для этой версии.");
                             return;
                         }
 
@@ -50,7 +50,7 @@ public class CommandUpdate extends Command {
                             player.getInventory().addItem(inHand);
                         }
 
-                        reply("&llenis> &bCheck my changelog out! (I put it in your hand)");
+                        reply("&lDraimGooSe> &bПроверьте мой список изменений! (Я вкладываю его тебе в руку)");
                         player.updateInventory();
                     }
                 });

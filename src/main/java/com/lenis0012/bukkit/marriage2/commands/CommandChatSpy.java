@@ -8,7 +8,7 @@ import com.lenis0012.bukkit.marriage2.config.Permissions;
 public class CommandChatSpy extends Command {
     public CommandChatSpy(Marriage marriage) {
         super(marriage, "chatspy");
-        setDescription("Enable admin chat spy.");
+        setDescription("Включить шпионский чат администратора.");
         setPermission(Permissions.CHAT_SPY);
         setHidden(true);
     }

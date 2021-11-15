@@ -14,7 +14,7 @@ public class CommandPriest extends Command {
 
     public CommandPriest(Marriage marriage) {
         super(marriage, "priest");
-        setDescription("Set whether or not a player should be priest.");
+        setDescription("Установить, должен ли игрок быть священником или нет.");
         setUsage("add/remove <player>");
         setMinArgs(2);
         setPermission(Permissions.ADMIN);
