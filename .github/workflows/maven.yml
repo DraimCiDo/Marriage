@@ -24,8 +24,8 @@ jobs:
     - name: Билд на мавене
       run: mvn -B package --file pom.xml
 
-    - name: Загрузка артифакта
-      uses: actions/upload-artifact@v2
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
       with:
         name: DraimMarry
-        path: build
+        path: ./build/
