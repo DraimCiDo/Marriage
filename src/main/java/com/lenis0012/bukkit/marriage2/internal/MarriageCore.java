@@ -130,7 +130,7 @@ public class MarriageCore extends MarriageBase {
                 CommandReload.class,
                 CommandSeen.class,
                 CommandSethome.class,
-                CommandTeleport.class,
+                CommandTeleport.class
         );
     }
 
