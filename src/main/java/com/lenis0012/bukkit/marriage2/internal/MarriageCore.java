@@ -59,15 +59,6 @@ public class MarriageCore extends MarriageBase {
         }
     }
 
-    @Register(name = "dependencies", type = Type.ENABLE, priority = 1)
-    public void loadDependencies() {
-        this.dependencies = new Dependencies(this);
-        if(Settings.PLOTSQUARED_AUTO_TRUST.value() && Bukkit.getPluginManager().isPluginEnabled("PlotSquared")) {
-            Plugin plotSquared = Bukkit.getPluginManager().getPlugin("PlotSquared");
-            getLogger().log(Level.INFO, "Обнаружен PlotSquared v" + plotSquared.getDescription().getVersion() + ". Попытка хука.");
-            hookPlotSquared();
-        }
-    }
 
     @Register(name = "database", type = Register.Type.ENABLE)
     public void loadDatabase() {
@@ -88,27 +79,6 @@ public class MarriageCore extends MarriageBase {
         register(new KissListener(this));
     }
 
-    private void hookPlotSquared() {
-        try {
-            getLogger().log(Level.INFO, "Попытка подключения с помощью API PlotSquared v5.");
-            Class.forName("com.plotsquared.core.api.PlotAPI");
-            register(new V5PlotSquaredListener());
-            getLogger().log(Level.INFO, "Успех! Включено автоматическое доверие.");
-            return;
-        } catch (Exception e) {
-        }
-
-        try {
-            getLogger().log(Level.INFO, "Попытка подключиться с помощью устаревшего API PlotSquared.");
-            Class.forName("com.intellectualcrafters.plot.PS");
-            register(new LegacyPlotSquaredListener());
-            getLogger().log(Level.INFO, "Успех! Включено автоматическое доверие.");
-            return;
-        } catch (Exception e) {
-        }
-
-        getLogger().log(Level.WARNING, "Не удалось подключиться к PlotSquared, пожалуйста, используйте v5 для полной поддержки.");
-    }
 
     @SuppressWarnings("unchecked")
 	@Register(name = "commands", type = Register.Type.ENABLE)
