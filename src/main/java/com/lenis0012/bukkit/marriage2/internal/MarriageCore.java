@@ -59,6 +59,7 @@ public class MarriageCore extends MarriageBase {
         }
     }
 
+
     @Register(name = "database", type = Register.Type.ENABLE)
     public void loadDatabase() {
         this.dataManager = new DataManager(this);
@@ -77,6 +78,7 @@ public class MarriageCore extends MarriageBase {
         register(new DatabaseListener(this));
         register(new KissListener(this));
     }
+
 
     @SuppressWarnings("unchecked")
 	@Register(name = "commands", type = Register.Type.ENABLE)
@@ -102,6 +104,13 @@ public class MarriageCore extends MarriageBase {
         );
     }
 
+    @Register(name = "converter", type = Register.Type.ENABLE, priority = 10)
+    public void loadConverter() {
+        DataConverter converter = new DataConverter(this);
+        if(converter.isOutdated()) {
+            converter.convert();
+        }
+    }
 
     @Register(name = "database", type = Register.Type.DISABLE)
     public void saveDatabase() {
