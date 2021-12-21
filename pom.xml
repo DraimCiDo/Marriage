@@ -4,7 +4,7 @@
 
     <groupId>com.lenis0012.bukkit</groupId>
     <artifactId>marriage2</artifactId>
-    <version>2.0.21-BETA</version>
+    <version>2.0.21-BETA-4</version>
     <packaging>jar</packaging>
     <name>Marriage</name>
 
@@ -36,16 +36,23 @@
         </repository>
         <!-- PlotSquared -->
         <repository>
-            <id>IntellectualSites</id>
-            <url>https://mvn.intellectualsites.com/content/groups/public/</url>
+            <id>IntellectualSites snapshots</id>
+            <url>https://mvn.intellectualsites.com/content/repositories/snapshots/</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>apache.snapshots</id>
+            <url>https://repository.apache.org/snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.3-R0.1-SNAPSHOT</version>
+            <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -55,30 +62,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.lenis0012.updater</groupId>
-            <artifactId>updater-api</artifactId>
-            <version>${updater.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>net.milkbowl.vault</groupId>
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- PlotSquared Legacy (before v4)-->
-        <dependency>
-            <groupId>com.plotsquared.bukkit</groupId>
-            <artifactId>PlotSquared</artifactId>
-            <version>3.3.3</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/PlotSquared.jar</systemPath>
-        </dependency>
-        <!-- PlotSquared v5 -->
-        <dependency>
-            <groupId>com.plotsquared</groupId>
-            <artifactId>PlotSquared-Core</artifactId>
-            <version>5.13.3</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -92,14 +78,6 @@
             <properties>
                 <project.updaterInfo>44364</project.updaterInfo>
             </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>com.lenis0012.updater</groupId>
-                    <artifactId>updater-bukkit</artifactId>
-                    <version>${updater.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-            </dependencies>
             <build>
                 <finalName>${project.name}-Bukkit-${project.version}</finalName>
             </build>
@@ -112,14 +90,6 @@
             <properties>
                 <project.updaterInfo>https://raw.githubusercontent.com/lenis0012/Marriage/master/latest_version.json</project.updaterInfo>
             </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>com.lenis0012.updater</groupId>
-                    <artifactId>updater-spigot</artifactId>
-                    <version>${updater.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-            </dependencies>
             <build>
                 <finalName>${project.name}-Spigot-${project.version}</finalName>
             </build>
@@ -149,8 +119,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>16</source>
+                    <target>16</target>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>false</showDeprecation> <!-- TODO: Change back to true when setItemInHand fixed -->
                 </configuration>
@@ -173,8 +143,8 @@
                                     <shadedPattern>com.lenis0012.bukkit.marriage2.libs.pluginutils</shadedPattern>
                                 </relocation>
                                 <relocation>
-                                    <pattern>com.lenis0012.updater</pattern>
-                                    <shadedPattern>com.lenis0012.bukkit.marriage2.libs.updater</shadedPattern>
+                                    <pattern>com.google.code.gson</pattern>
+                                    <shadedPattern>com.lenis0012.bukkit.marriage2.libs.gson</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
