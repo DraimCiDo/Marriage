@@ -4,6 +4,7 @@ import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.config.Message;
 import com.lenis0012.bukkit.marriage2.internal.MarriageBase;
 import com.lenis0012.bukkit.marriage2.internal.MarriageCommandExecutor;
+import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -24,10 +25,8 @@ public class CommandHelp extends Command {
     @Override
     public void execute() {
         MarriageCommandExecutor commandExecutor = ((MarriageBase) marriage).getCommandExecutor();
-		// reply("Автор: &alenis0012");
-        // reply("Автор форка: &aDraimGooSe");
-        reply("Версия: &a" + marriage.getPlugin().getDescription().getVersion());
-        reply("&2&m---------&2< &a&lКоманды &2>&2&m---------"); // Play around with the amount of dashes later
+        reply(ColorUtils.colorMessage("<$#0C9C29>Версия плагина:<$#0ED42C> ") + marriage.getPlugin().getDescription().getVersion());
+        reply(ColorUtils.colorMessage("<$#f12711>&m---------<$#f5af19> <$#FDC830>Команды<$#F37335> <$#f12711>&m---------<$#f5af19>")); // Play around with the amount of dashes later
         for(Command command : commandExecutor.getSubCommands()) {
             if(command.isHidden()) {
                 continue;
@@ -61,6 +60,6 @@ public class CommandHelp extends Command {
             status = String.format(Message.MARRIED_TO.toString(), partner);
         }
         reply(Message.STATUS, status);
-        reply("&2&m--------------------------------------------"); // Play around with the amount of dashes later
+        reply(ColorUtils.colorMessage("<$#f12711>&m--------------------------------------------<$#f5af19>")); // Play around with the amount of dashes later
     }
 }

@@ -5,6 +5,7 @@ import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.config.Message;
 import com.lenis0012.bukkit.marriage2.config.Permissions;
 import com.lenis0012.bukkit.marriage2.config.Settings;
+import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 import org.bukkit.entity.Player;
 
 /**
@@ -14,7 +15,7 @@ public class CommandPriest extends Command {
 
     public CommandPriest(Marriage marriage) {
         super(marriage, "priest");
-        setDescription("Установить, должен ли игрок быть священником или нет.");
+        setDescription(ColorUtils.colorMessage("<$#43C6AC>Установить, должен ли игрок быть священником или нет.<$#191654>"));
         setUsage("add/remove <player>");
         setMinArgs(2);
         setPermission(Permissions.ADMIN);

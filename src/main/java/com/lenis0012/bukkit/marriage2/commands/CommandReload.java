@@ -5,6 +5,7 @@ import com.lenis0012.bukkit.marriage2.config.Message;
 import com.lenis0012.bukkit.marriage2.config.Permissions;
 import com.lenis0012.bukkit.marriage2.config.Settings;
 import com.lenis0012.bukkit.marriage2.internal.MarriagePlugin;
+import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 import com.lenis0012.pluginutils.modules.configuration.ConfigurationModule;
 
 public class CommandReload extends Command {
@@ -13,7 +14,7 @@ public class CommandReload extends Command {
         super(marriage, "reload");
 
         // Command options
-        setDescription("Перезагрузить параметры конфигурации");
+        setDescription(ColorUtils.colorMessage("<$#43C6AC>Перезагрузить параметры конфигурации<$#191654>"));
         setPermission(Permissions.RELOAD);
         setAllowConsole(true);
         setHidden(true);
