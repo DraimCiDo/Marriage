@@ -56,7 +56,6 @@ public class MarriagePlugin extends PluginHolder {
 
     @Override
     public void onLoad() {
-        printASCII();
         executeMethods(Register.Type.LOAD);
     }
 
