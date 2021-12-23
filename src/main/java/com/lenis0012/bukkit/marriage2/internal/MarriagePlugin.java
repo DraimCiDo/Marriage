@@ -2,6 +2,7 @@ package com.lenis0012.bukkit.marriage2.internal;
 
 import com.google.common.collect.Lists;
 import com.lenis0012.bukkit.marriage2.Marriage;
+import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 import com.lenis0012.pluginutils.PluginHolder;
 import com.lenis0012.pluginutils.modules.configuration.ConfigurationModule;
 
@@ -55,11 +56,13 @@ public class MarriagePlugin extends PluginHolder {
 
     @Override
     public void onLoad() {
+        printASCII();
         executeMethods(Register.Type.LOAD);
     }
 
     @Override
     public void enable() {
+        printASCII();
         executeMethods(Register.Type.ENABLE);
     }
 
@@ -70,24 +73,24 @@ public class MarriagePlugin extends PluginHolder {
 
     private void executeMethods(Register.Type type) {
         List<Method> list = Lists.newArrayList(methods[type.ordinal()]);
-        while(!list.isEmpty()) {
+        while (!list.isEmpty()) {
             Method method = null;
             int lowestPriority = Integer.MAX_VALUE;
-            for(Method m : list) {
+            for (Method m : list) {
                 Register register = m.getAnnotation(Register.class);
-                if(register.priority() < lowestPriority) {
+                if (register.priority() < lowestPriority) {
                     method = m;
                     lowestPriority = register.priority();
                 }
             }
 
-            if(method != null) {
+            if (method != null) {
                 list.remove(method);
                 Register register = method.getAnnotation(Register.class);
                 getLogger().log(Level.INFO, "Загрузка " + register.name() + "...");
                 try {
                     method.invoke(core);
-                } catch(Exception e) {
+                } catch (Exception e) {
                     getLogger().log(Level.SEVERE, "Не удалось загрузить " + register.name(), e);
                 }
             } else {
@@ -96,5 +99,19 @@ public class MarriagePlugin extends PluginHolder {
         }
 
         getLogger().log(Level.INFO, type.getCompletionMessage());
+    }
+
+    public void printASCII() {
+        getLogger().info(ColorUtils.colorMessage(" &6 /$$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$ /$$      /$$ /$$      /$$  /$$$$$$  /$$$$$$$  /$$$$$$$  /$$     /$$"));
+        getLogger().info(ColorUtils.colorMessage(" &6| $$__  $$| $$__  $$ /$$__  $$|_  $$_/| $$$    /$$$| $$$    /$$$ /$$__  $$| $$__  $$| $$__  $$|  $$   /$$/"));
+        getLogger().info(ColorUtils.colorMessage(" &6| $$  \\ $$| $$  \\ $$| $$  \\ $$  | $$  | $$$$  /$$$$| $$$$  /$$$$| $$  \\ $$| $$  \\ $$| $$  \\ $$ \\  $$ /$$/ "));
+        getLogger().info(ColorUtils.colorMessage(" &6| $$  | $$| $$$$$$$/| $$$$$$$$  | $$  | $$ $$/$$ $$| $$ $$/$$ $$| $$$$$$$$| $$$$$$$/| $$$$$$$/  \\  $$$$/  "));
+        getLogger().info(ColorUtils.colorMessage(" &6| $$  | $$| $$__  $$| $$__  $$  | $$  | $$  $$$| $$| $$  $$$| $$| $$__  $$| $$__  $$| $$__  $$   \\  $$/   "));
+        getLogger().info(ColorUtils.colorMessage(" &6| $$  | $$| $$  \\ $$| $$  | $$  | $$  | $$\\  $ | $$| $$\\  $ | $$| $$  | $$| $$  \\ $$| $$  \\ $$    | $$    "));
+        getLogger().info(ColorUtils.colorMessage(" &6| $$$$$$$/| $$  | $$| $$  | $$ /$$$$$$| $$ \\/  | $$| $$ \\/  | $$| $$  | $$| $$  | $$| $$  | $$    | $$    "));
+        getLogger().info(ColorUtils.colorMessage(" &6|_______/ |__/  |__/|__/  |__/|______/|__/     |__/|__/     |__/|__/  |__/|__/  |__/|__/  |__/    |__/    "));
+        getLogger().info(ColorUtils.colorMessage("                                                                                  "));
+        getLogger().info(ColorUtils.colorMessage("                                                                &6by DraimGooSe        "));
+        getLogger().info(ColorUtils.colorMessage("                                                                                  "));
     }
 }
