@@ -45,11 +45,11 @@ public class CommandSeen extends Command {
         long hrs = TimeUnit.MILLISECONDS.toHours(ms) % 24;
         long dys = TimeUnit.MILLISECONDS.toDays(ms);
         if(dys > 0) {
-            return String.format("%sdys%shrs", dys, hrs);
+            return String.format("%s дней %s часов", dys, hrs);
         } else if(hrs > 0) {
-            return String.format("%shrs%smin", hrs, min);
+            return String.format("%s часов %s минут", hrs, min);
         } else if(min > 0) {
-            return String.format("%smin%ssec", min, sec);
+            return String.format("%s минут %s секунд", min, sec);
         } else {
             return sec + "sec";
         }
