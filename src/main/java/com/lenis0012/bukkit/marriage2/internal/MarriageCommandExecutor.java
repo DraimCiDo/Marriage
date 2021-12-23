@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.commands.Command;
 import com.lenis0012.bukkit.marriage2.config.Settings;
+import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -36,13 +37,13 @@ public class MarriageCommandExecutor implements CommandExecutor {
                     command.prepare(sender, args);
                     command.execute();
                 } else {
-                    sender.sendMessage(ChatColor.RED + "Вы должны быть игроком, чтобы выполнить эту команду.");
+                    sender.sendMessage(ColorUtils.colorMessage("<$#FF512F>Вы должны быть игроком, чтобы выполнить эту команду.<$#F09819>"));
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "Вам не разрешается использовать эту команду.");
+                sender.sendMessage(ColorUtils.colorMessage("<$#FF512F>Вам не разрешается использовать эту команду.<$#F09819>"));
             }
         } else {
-            sender.sendMessage(ChatColor.RED + "Вы не указали достаточно аргументов для этой команды.");
+            sender.sendMessage(ColorUtils.colorMessage("<$#FF512F>Вы не указали достаточно аргументов для этой команды.<$#F09819>"));
         }
 
         return true;
