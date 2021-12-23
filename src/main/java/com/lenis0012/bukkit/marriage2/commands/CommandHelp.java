@@ -25,7 +25,7 @@ public class CommandHelp extends Command {
     @Override
     public void execute() {
         MarriageCommandExecutor commandExecutor = ((MarriageBase) marriage).getCommandExecutor();
-        reply(ColorUtils.colorMessage("<$#0C9C29>Версия плагина:<$#0ED42C> ") + marriage.getPlugin().getDescription().getVersion());
+//        reply(ColorUtils.colorMessage("<$#0C9C29>Версия плагина:<$#0ED42C> ") + marriage.getPlugin().getDescription().getVersion());
         reply(ColorUtils.colorMessage("<$#f12711>&m---------<$#f5af19> <$#FDC830>Команды<$#F37335> <$#f12711>&m---------<$#f5af19>")); // Play around with the amount of dashes later
         for(Command command : commandExecutor.getSubCommands()) {
             if(command.isHidden()) {
