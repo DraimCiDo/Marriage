@@ -1,31 +1,17 @@
 {
-  "version": "Marriage v2.0.20",
+  "version": "Marriage v2.0.26",
   "data":
   [
     [
-      "---[ Changelog ]---",
+      "---[ Обновление ]---",
       "",
-      "- Fixed AAC support (thanks Janmm14)",
+      "- Добавлена HEX-поддержка",
       "",
-      "- Added PlotSquared v5 support (1.13+)",
+      "- Исправлено оторажение команды /marry seen",
       "",
-      "- Disallow gifting to a full inventory",
+      "- справлено множество ошибок",
       "",
-      "Full changelog on spigotmc.org"
-    ],
-    [
-      "====[ DONATE ]====",
-      "",
-      "Donate if you enjoy this update.",
-      "",
-      "paypal.me/lenis0012",
-      "",
-      "=====[ SOCIAL ]=====",
-      "IGN: lenis",
-      "Twitter: @lenis0012",
-      "",
-      "Report bugs!",
-      "-lenis"
+      "Все измения вы "
     ]
   ]
 }
