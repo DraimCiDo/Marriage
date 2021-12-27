@@ -13,7 +13,9 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.logging.Level;
 
-public class MarriagePlugin extends PluginHolder {
+public class MarriagePlugin extends PluginHolder
+{
+    private static MarriagePlugin instance;
     private static MarriageCore core;
 
     private File langFile;
@@ -68,29 +70,11 @@ public class MarriagePlugin extends PluginHolder {
     public void enable() {
         printASCII();
         executeMethods(Register.Type.ENABLE);
-        this.createLangFile("ru_RU");
-        this.loadLangConfig();
     }
 
     @Override
     public void disable() {
         executeMethods(Register.Type.DISABLE);
-    }
-
-    private void createLangFile(String... names) {
-        for (String name : names) {
-            if (!new File(getDataFolder(), "lang" + File.separator + name + ".yml").exists()) {
-                saveResource("lang" + File.separator + name + ".yml", false);
-            }
-        }
-    }
-
-    public void loadLangConfig() {
-        langFile = new File(getDataFolder(), "lang" + File.separator + getConfig().getString("lang") + ".yml");
-        if (!langFile.exists()) {
-            langFile = new File(getDataFolder(), "lang" + File.separator + "ru_RU.yml");
-        }
-        langConfig = YamlConfiguration.loadConfiguration(langFile);
     }
 
     private void executeMethods(Register.Type type) {

@@ -4,9 +4,12 @@ import com.lenis0012.bukkit.marriage2.MPlayer;
 import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.config.Message;
 import com.lenis0012.bukkit.marriage2.config.Permissions;
+import com.lenis0012.bukkit.marriage2.internal.MarriagePlugin;
 import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 
 public class CommandChatSpy extends Command {
+    private MarriagePlugin plugin;
+
     public CommandChatSpy(Marriage marriage) {
         super(marriage, "chatspy");
         setDescription(ColorUtils.colorMessage("{#43C6AC>}Включить шпионский чат администратора.{#191654<}"));

@@ -2,11 +2,11 @@ package com.lenis0012.bukkit.marriage2.config;
 
 import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.misc.BConfig;
-import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 
-public enum Message {
+public enum Message
+{
     PLAYER_NOT_FOUND("&cИмя игрока %s не найдено!"),
     TARGET_ALREADY_MARRIED("&cИгрок %s уже замужем за кем-то!"),
     ALREADY_MARRIED("&cТы уже замужем за кем-то!"),
@@ -59,24 +59,24 @@ public enum Message {
     PARTNER_INVENTORY_FULL("&cИнвентарь вашего партнера полон!"),
 
     // COMMANDS
-    COMMAND_MARRY(ColorUtils.colorMessage("{#7F7FD5>}Отравить предложение брака игроку{#91EAE4<}")),
-    COMMAND_MARRY_PRIEST(ColorUtils.colorMessage("{#7F7FD5<}Женить двух игроков друг на друге{#91EAE4<}")),
-    COMMAND_CHAT(ColorUtils.colorMessage("{#7F7FD5<}Включить режим чата только для партнеров{#91EAE4<}")),
-    COMMAND_DIVORCE(ColorUtils.colorMessage("{#7F7FD5<}Развестись со своим нынешним партнером{#91EAE4<}")),
-    COMMAND_GENDER(ColorUtils.colorMessage("{#7F7FD5<}Указать свой пол{#91EAE4<}")),
-    COMMAND_GIFT(ColorUtils.colorMessage("{#7F7FD5<}Подарите предмет, который вы в настоящее время держите{#91EAE4<}")),
-    COMMAND_HOME(ColorUtils.colorMessage("{#7F7FD5<}Телепортация в семейный дом{#91EAE4<}")),
-    COMMAND_LIST(ColorUtils.colorMessage("{#7F7FD5<}Просмотреть список всех женатых игроков{#91EAE4<}")),
-    COMMAND_SEEN(ColorUtils.colorMessage("{#7F7FD5<}Проверить, когда ваш партнер в последний раз входил в систему{#91EAE4<}")),
-    COMMAND_SETHOME(ColorUtils.colorMessage("{#7F7FD5<}Создать дом для себя и своего партнера{#91EAE4<}")),
-    COMMAND_TELEPORT(ColorUtils.colorMessage("{#7F7FD5<}Телепортироваться к своему партнеру{#91EAE4<}")),
-    COMMAND_HEAL(ColorUtils.colorMessage("{#7F7FD5<}Передать свое здоровье вашему партнеру{#91EAE4<}")),
-    COMMAND_PVP(ColorUtils.colorMessage("{#7F7FD5<}Включить/отключить ПвП с вашим партнером{#91EAE4<}")),
+    COMMAND_MARRY("Отравить предложение брака игроку"),
+    COMMAND_MARRY_PRIEST("Женить двух игроков друг на друге"),
+    COMMAND_CHAT("Включить режим чата только для партнеров"),
+    COMMAND_DIVORCE("Развестись со своим нынешним партнером"),
+    COMMAND_GENDER("Указать свой пол"),
+    COMMAND_GIFT("Подарите предмет, который вы в настоящее время держите"),
+    COMMAND_HOME("Телепортация в семейный дом"),
+    COMMAND_LIST("Просмотреть список всех женатых игроков"),
+    COMMAND_SEEN("Проверить, когда ваш партнер в последний раз входил в систему"),
+    COMMAND_SETHOME("Создать дом для себя и своего партнера"),
+    COMMAND_TELEPORT("Телепортироваться к своему партнеру"),
+    COMMAND_HEAL("Передать свое здоровье вашему партнеру"),
+    COMMAND_PVP("Включить/отключить ПвП с вашим партнером"),
 
     // WORDS
-    STATUS(ColorUtils.colorMessage("{#8E2DE2<}Статус:{#4A00E0<} %s")),
-    SINGLE(ColorUtils.colorMessage("{#7F7FD5<}одинок{#91EAE4<}")),
-    ON_OFF(ColorUtils.colorMessage("{#7F7FD5<}вкл/выкл{#91EAE4<}"));
+    STATUS("Статус: %s"),
+    SINGLE("одинок"),
+    ON_OFF("вкл/выкл");
 
     private final String defaultMessage;
     private String message;
