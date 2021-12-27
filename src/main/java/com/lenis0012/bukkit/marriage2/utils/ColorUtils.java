@@ -765,4 +765,14 @@ public class ColorUtils
             return new TextColor(EnumChatFormat.valueOf(string.toUpperCase()));
         }
     }
+
+    public static String colorBungee(String legacyMsg) {
+        return legacyToJson(colorMessage(legacyMsg));
+    }
+
+    public static String legacyToJson(String legacyString) {
+        if (legacyString == null)
+            return "";
+        return ComponentSerializer.toString(TextComponent.fromLegacyText(legacyString));
+    }
 }
