@@ -5,6 +5,8 @@ import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 import com.lenis0012.pluginutils.PluginHolder;
 import com.lenis0012.pluginutils.modules.configuration.ConfigurationModule;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -13,6 +15,9 @@ import java.util.logging.Level;
 
 public class MarriagePlugin extends PluginHolder {
     private static MarriageCore core;
+
+    private File langFile;
+    private FileConfiguration langConfig;
 
     public static Marriage getCore() {
         return core;
@@ -63,11 +68,29 @@ public class MarriagePlugin extends PluginHolder {
     public void enable() {
         printASCII();
         executeMethods(Register.Type.ENABLE);
+        this.createLangFile("ru_RU");
+        this.loadLangConfig();
     }
 
     @Override
     public void disable() {
         executeMethods(Register.Type.DISABLE);
+    }
+
+    private void createLangFile(String... names) {
+        for (String name : names) {
+            if (!new File(getDataFolder(), "lang" + File.separator + name + ".yml").exists()) {
+                saveResource("lang" + File.separator + name + ".yml", false);
+            }
+        }
+    }
+
+    public void loadLangConfig() {
+        langFile = new File(getDataFolder(), "lang" + File.separator + getConfig().getString("lang") + ".yml");
+        if (!langFile.exists()) {
+            langFile = new File(getDataFolder(), "lang" + File.separator + "ru_RU.yml");
+        }
+        langConfig = YamlConfiguration.loadConfiguration(langFile);
     }
 
     private void executeMethods(Register.Type type) {
