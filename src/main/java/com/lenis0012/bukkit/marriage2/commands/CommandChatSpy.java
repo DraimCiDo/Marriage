@@ -9,7 +9,7 @@ import com.lenis0012.bukkit.marriage2.utils.ColorUtils;
 public class CommandChatSpy extends Command {
     public CommandChatSpy(Marriage marriage) {
         super(marriage, "chatspy");
-        setDescription(ColorUtils.colorMessage("<$#43C6AC>Включить шпионский чат администратора.<$#191654>"));
+        setDescription(ColorUtils.colorMessage("{#43C6AC>}Включить шпионский чат администратора.{#191654<}"));
         setPermission(Permissions.CHAT_SPY);
         setHidden(true);
     }

@@ -26,20 +26,20 @@ public class CommandMigrate extends Command {
         } else if(getArg(0).equalsIgnoreCase("mysql") && getArg(1).equalsIgnoreCase("sqlite")) {
             driver = Driver.MYSQL;
         } else {
-            reply(ColorUtils.colorMessage("<$#43C6AC>Используйте:<$#191654> <$#00F260>/marry migrate <old db> <new db><$#0575E6>"));
+            reply(ColorUtils.colorMessage("{#43C6AC>}Используйте:{#191654<} {#00F260>}/marry migrate <old db> <new db>{#0575E6<}"));
             return;
         }
 
         final boolean fastMode = getArgLength() <= 2 || !getArg(2).equalsIgnoreCase("false");
         final DataManager oldDatabase = new DataManager(core, driver);
 
-        reply(ColorUtils.colorMessage("<$#e65c00>Запущен процесс миграции (это займёт не которое время)<$#F9D423>"));
+        reply(ColorUtils.colorMessage("{#e65c00>}Запущен процесс миграции (это займёт не которое время){#F9D423<}"));
         Bukkit.getScheduler().runTaskAsynchronously(marriage.getPlugin(), new Runnable() {
             @Override
             public void run() {
                 boolean success = oldDatabase.migrateTo(newDatabase, !fastMode);
                 oldDatabase.close(); // Disconnect from old db
-                reply(ColorUtils.colorMessage(success ? "<$#e65c00>&aБД успешно перенесена!<$#F9D423>" : "<$#FF512F>Что-то пошло не так во время миграции, проверьте консоль.<$#F09819>"));
+                reply(ColorUtils.colorMessage(success ? "{#e65c00>}БД успешно перенесена!{#F9D423<}" : "{#FF512F>}Что-то пошло не так во время миграции, проверьте консоль.{#F09819<}"));
             }
         });
     }

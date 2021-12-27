@@ -14,7 +14,7 @@ public class CommandReload extends Command {
         super(marriage, "reload");
 
         // Command options
-        setDescription(ColorUtils.colorMessage("<$#43C6AC>Перезагрузить параметры конфигурации<$#191654>"));
+        setDescription(ColorUtils.colorMessage("{#43C6AC>}Перезагрузить параметры конфигурации{#191654<}"));
         setPermission(Permissions.RELOAD);
         setAllowConsole(true);
         setHidden(true);
