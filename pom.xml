@@ -138,19 +138,6 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <relocations>
-                                <relocation>
-                                    <pattern>com.lenis0012.pluginutils</pattern>
-                                    <shadedPattern>com.lenis0012.bukkit.marriage2.libs.pluginutils</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>com.lenis0012.updater</pattern>
-                                    <shadedPattern>com.lenis0012.bukkit.marriage2.libs.updater</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
