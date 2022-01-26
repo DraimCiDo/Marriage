@@ -21,9 +21,13 @@
         </repository>
         <!-- Vault -->
         <repository>
-            <id>vault-repo</id>
-            <url>http://nexus.hc.to/content/repositories/pub_releases</url>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
+<!--        <repository>-->
+<!--            <id>vault-repo</id>-->
+<!--            <url>http://nexus.hc.to/content/repositories/pub_releases</url>-->
+<!--        </repository>-->
         <!-- CodeMC -->
         <repository>
             <id>codemc-repo</id>
@@ -45,27 +49,32 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.3-R0.1-SNAPSHOT</version>
+            <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.lenis0012.bukkit</groupId>
             <artifactId>lenisutils</artifactId>
             <version>1.0.1</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>com.lenis0012.updater</groupId>
             <artifactId>updater-api</artifactId>
             <version>${updater.version}</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- Vault Lib -->
         <dependency>
-            <groupId>net.milkbowl.vault</groupId>
+            <groupId>com.github.MilkBowl</groupId>
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
             <scope>provided</scope>
         </dependency>
+
         <!-- PlotSquared Legacy (before v4)-->
         <dependency>
             <groupId>com.plotsquared.bukkit</groupId>
@@ -74,18 +83,19 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/PlotSquared.jar</systemPath>
         </dependency>
+
         <!-- PlotSquared Core API -->
         <dependency>
             <groupId>com.plotsquared</groupId>
             <artifactId>PlotSquared-Core</artifactId>
             <version>6.3.0</version>
             <scope>provided</scope>
-        </dependency>
-        <!-- Paper -->
-        <dependency>
-            <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <version>1.18.1-R0.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>PlotSquared-Core</artifactId>
+                    <groupId>*</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
