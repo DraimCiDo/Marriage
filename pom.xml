@@ -4,7 +4,7 @@
 
     <groupId>com.lenis0012.bukkit</groupId>
     <artifactId>marriage2</artifactId>
-    <version>2.0.31</version>
+    <version>2.0.32</version>
     <packaging>jar</packaging>
     <name>Marriage</name>
 
@@ -122,8 +122,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>16</source>
+                    <target>16</target>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>false</showDeprecation> <!-- TODO: Change back to true when setItemInHand fixed -->
                 </configuration>

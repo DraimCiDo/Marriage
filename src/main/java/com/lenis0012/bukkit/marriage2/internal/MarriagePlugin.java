@@ -107,6 +107,7 @@ public class MarriagePlugin extends PluginHolder
         getLogger().log(Level.INFO, type.getCompletionMessage());
     }
 
+    // Принт в Консоль, просто для красоты
     public void printASCII() {
         getLogger().info(ColorUtils.colorMessage(" &6 /$$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$ /$$      /$$ /$$      /$$  /$$$$$$  /$$$$$$$  /$$$$$$$  /$$     /$$"));
         getLogger().info(ColorUtils.colorMessage(" &6| $$__  $$| $$__  $$ /$$__  $$|_  $$_/| $$$    /$$$| $$$    /$$$ /$$__  $$| $$__  $$| $$__  $$|  $$   /$$/"));

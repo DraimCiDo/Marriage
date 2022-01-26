@@ -10,3 +10,9 @@ commands:
   marry:
     description: Основная команда.
     usage: /marry <args>
+    aliases:
+      - marry
+      - draimmarry
+      - marriage
+      - draimmarriage
+      - dm
