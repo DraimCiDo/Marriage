@@ -128,6 +128,28 @@
                     <showDeprecation>false</showDeprecation> <!-- TODO: Change back to true when setItemInHand fixed -->
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <id>general</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.lenis0012.pluginutils</pattern>
+                                    <shadedPattern>com.lenis0012.bukkit.marriage2.libs.pluginutils</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- Generate javadoc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
