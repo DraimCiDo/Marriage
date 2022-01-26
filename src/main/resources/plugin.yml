@@ -3,7 +3,7 @@ version: ${project.version}
 main: com.lenis0012.bukkit.marriage2.internal.MarriagePlugin
 authors: [ DraimGooSe, lenis0012 ]
 description: Плагин, который предоставляет функцию для начала отношений в MineCraft.
-website: https://github.com/DraimDEV/Marriage/
+website: https://github.com/DraimCiDo/Marriage/
 softdepend: [Vault, PlotSquared]
 api-version: '1.13'
 commands:
