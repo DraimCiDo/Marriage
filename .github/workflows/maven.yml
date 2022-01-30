@@ -22,7 +22,7 @@ jobs:
         java-version: 16
 
     - name: Билд на мавене
-      run: mvn -B package --file pom.xml -e
+      run: mvn -B package --file pom.xml
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.4
