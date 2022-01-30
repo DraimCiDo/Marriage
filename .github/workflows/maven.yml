@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Создание папки
-      run: mkdir build
     - name: Проверка последнего кода
       uses: actions/checkout@v2
 
