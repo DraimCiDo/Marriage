@@ -4,14 +4,16 @@ import com.lenis0012.bukkit.marriage2.MPlayer;
 import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.config.Message;
 import com.lenis0012.bukkit.marriage2.config.Settings;
+import com.lenis0012.bukkit.marriage2.utils.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class CommandDivorce extends Command {
+    final Player p = (Player)sender;
 
     public CommandDivorce(Marriage marriage) {
         super(marriage, "divorce");
-        setDescription(Message.COMMAND_DIVORCE.toString());
+        setDescription(MessageUtils.config("message", "Messages.Divorce", p, 0));
         setExecutionFee(Settings.PRICE_DIVORCE);
     }
 

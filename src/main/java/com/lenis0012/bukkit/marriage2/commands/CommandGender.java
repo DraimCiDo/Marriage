@@ -5,12 +5,15 @@ import com.lenis0012.bukkit.marriage2.MPlayer;
 import com.lenis0012.bukkit.marriage2.Marriage;
 import com.lenis0012.bukkit.marriage2.config.Message;
 import com.lenis0012.bukkit.marriage2.config.Settings;
+import com.lenis0012.bukkit.marriage2.utils.MessageUtils;
+import org.bukkit.entity.Player;
 
 public class CommandGender extends Command {
+    final Player p = (Player)sender;
 
     public CommandGender(Marriage marriage) {
         super(marriage, "gender");
-        setDescription(Message.COMMAND_GENDER.toString());
+        setDescription(MessageUtils.config("message", "Messages.Gender", p, 0));
         setUsage("<gender>");
         setMinArgs(1);
     }
